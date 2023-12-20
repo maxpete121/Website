@@ -24,6 +24,10 @@ class ItemService{
         await itemToRemove.remove()
         return `Item removed`
     }
+
+    async updateItem(){
+        
+    }
 }
 
 

@@ -53,4 +53,13 @@ export class ItemController extends BaseController{
             next(error)
         }
     }
+
+    async updateItem(request, response, next){
+        try {
+            const itemId = request.params.itemId
+            const updated = await itemService.updateItem()
+        } catch (error) {
+            
+        }
+    }
 }
