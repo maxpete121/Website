@@ -10,7 +10,8 @@ class ItemService{
     }
 
     async getItems(){
-        
+        const allItems = await dbContext.Items.find()
+        return allItems
     }
 }
 
