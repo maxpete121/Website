@@ -59,7 +59,7 @@ export class ItemController extends BaseController{
             const itemId = request.params.itemId
             const updated = await itemService.updateItem()
         } catch (error) {
-            
+            next(error)
         }
     }
 }
