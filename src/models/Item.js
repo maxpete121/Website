@@ -11,7 +11,7 @@ export const ItemSchema = new Schema({
     specsId: {type: Schema.Types.ObjectId, ref: 'Specs', required: true}
 },{toJSON: {virtuals: true}})
 
-SpecsSchema.virtual('specs', {
+ItemSchema.virtual('specs', {
     localField: 'specsId',
     foreignField: '_id',
     ref: 'Specs'

@@ -10,12 +10,12 @@ class ItemService{
     }
 
     async getItems(){
-        const allItems = await dbContext.Items.find()
+        const allItems = await dbContext.Items.find().populate('specs')
         return allItems
     }
 
     async findItem(itemId){
-        const foundItem = await dbContext.Items.findById(itemId)
+        const foundItem = await dbContext.Items.findById(itemId).populate('specs')
         return foundItem
     }
 
