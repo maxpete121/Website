@@ -4,6 +4,7 @@ import { ValueSchema } from '../models/Value'
 import { ItemSchema} from '../models/Item.js';
 import { SpecsSchema } from '../models/Specs.js';
 import { CartSchema } from '../models/Cart.js';
+import { HighTierSchema } from '../models/HighTier.js';
 
 class DbContext {
   Values = mongoose.model('Value', ValueSchema);
@@ -14,6 +15,8 @@ class DbContext {
   Specs = mongoose.model('Specs', SpecsSchema)
 
   Cart = mongoose.model('Cart', CartSchema)
+
+  HighTier = mongoose.model('HighTier', HighTierSchema)
 
 }
 
