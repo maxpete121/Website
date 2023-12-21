@@ -12,6 +12,7 @@ export class ItemController extends BaseController{
         .get('', this.getItems)
         .use(Auth0Provider.getAuthorizedUserInfo)
         .get('/find/:itemId', this.findItem)
+        .put('/:itemId', this.updateItem)
         .post('', this.postComputer)
         .delete('/:itemId', this.removeItem)
 
@@ -59,7 +60,9 @@ export class ItemController extends BaseController{
     async updateItem(request, response, next){
         try {
             const itemId = request.params.itemId
-            const updated = await itemService.updateItem()
+            const update = request.body
+            const updated = await itemService.updateItem(itemId, update)
+            response.send(update)
         } catch (error) {
             next(error)
         }

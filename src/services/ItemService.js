@@ -25,8 +25,16 @@ class ItemService{
         return `Item removed`
     }
 
-    async updateItem(){
-        
+    async updateItem(itemId, update){
+        const itemUpgrade = await dbContext.Items.findById(itemId)
+        itemUpgrade.name = update.name ? update.name : itemUpgrade.name
+        itemUpgrade.price = update.price ? update.price : itemUpgrade.price
+        itemUpgrade.buildType = update.buildType ? update.buildType : itemUpgrade.buildType
+        itemUpgrade.description = update.description ? update.description : itemUpgrade.description
+        itemUpgrade.imgUrl = update.imgUrl ? update.imgUrl : itemUpgrade.imgUrl
+        itemUpgrade.specsId = update.specsId ? update.specsId : itemUpgrade.specsId
+        await itemUpgrade.save()
+        return itemUpgrade
     }
 }
 
