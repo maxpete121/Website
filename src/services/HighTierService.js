@@ -26,6 +26,13 @@ class HighTierService{
     async updateHighTier(tierId, upgrade){
         const tierToUpgrade = await dbContext.HighTier.findById(tierId)
         tierToUpgrade.name = upgrade.name ? upgrade.name : tierToUpgrade.name
+        tierToUpgrade.buildType = upgrade.buildType ? upgrade.buildType : tierToUpgrade.buildType
+        tierToUpgrade.price = upgrade.price ? upgrade.price : tierToUpgrade.price
+        tierToUpgrade.description = upgrade.description ? upgrade.description : tierToUpgrade.description
+        tierToUpgrade.imgUrl = upgrade.imgUrl ? upgrade.imgUrl : tierToUpgrade.imgUrl
+        tierToUpgrade.specsId = upgrade.specsId ? upgrade.specsId : tierToUpgrade.specsId
+        await tierToUpgrade.save()
+        return tierToUpgrade
     }
 }
 
