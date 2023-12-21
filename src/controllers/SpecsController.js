@@ -1,5 +1,6 @@
 import { specsService } from "../services/SpecsService.js";
 import BaseController from "../utils/BaseController.js";
+import { Auth0Provider } from "@bcwdev/auth0provider";
 
 
 
@@ -11,6 +12,7 @@ export class SpecsController extends BaseController{
         super('api/specs')
         this.router
         .get('', this.getSpecs)
+        .use(Auth0Provider.getAuthorizedUserInfo)
         .post('', this.postSpecs)
     }
 

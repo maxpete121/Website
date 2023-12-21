@@ -13,7 +13,7 @@ class HighTierService{
     }
 
     async getTier(){
-        const allTier = await dbContext.HighTier.find()
+        const allTier = await dbContext.HighTier.find().populate('specs')
         return allTier
     }
 

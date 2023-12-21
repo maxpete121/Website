@@ -1,5 +1,6 @@
 import { itemService } from "../services/ItemService.js";
 import BaseController from "../utils/BaseController.js";
+import { Auth0Provider } from "@bcwdev/auth0provider";
 
 
 
@@ -9,6 +10,7 @@ export class ItemController extends BaseController{
         super('api/items')
         this.router
         .get('', this.getItems)
+        .use(Auth0Provider.getAuthorizedUserInfo)
         .get('/find/:itemId', this.findItem)
         .post('', this.postComputer)
         .delete('/:itemId', this.removeItem)
